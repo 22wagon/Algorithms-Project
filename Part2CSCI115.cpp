@@ -57,10 +57,10 @@ int main()
 	cout << "Execution time of bruteTime: " << (float)bruteTime / CLOCKS_PER_SEC << endl << endl << endl;
 
 	cout << "In reverse sorted list:" << endl;
-	int b = 0;
+	int br = 0;
 	for (int i = BruteMax; i > 0; i--)		// Reversed Array
 	{
-		BruteReverse[b++] = i-1;
+		BruteReverse[br++] = i-1;
 	}
 	int bruteReverseArraysize = sizeof(BruteReverse) / sizeof(BruteReverse[0]);
 	bruteTime = clock();
