@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #define BruteMax 85000
+//This is only for the brute force manner of part 2
 void brute(int bruteArray[], int bruteS, int x)
 {
 	//int total = 0;
