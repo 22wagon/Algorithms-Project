@@ -79,6 +79,36 @@ void BBCountingSort(int A[], int s, int B[], int C[]) //This is the function to 
 		A[i] = B[i]; //Transfering it from the B array and placing it in the original A array.
 	}
 }
+void CountingSortRA(int A[], int s, int n) //Similar to the last function with counting sort but with divison and used for Radix sort instead. Which Radix sort used part of the counting sort in the function. Which is why I put RA in the end for Radix.
+{
+	int B[45000]; //Placing the B and initalize it here which would be 10 as that is how many value is being sorted.   45000 derived from RadMax3 from main
+	int C[45000] = { 0 }; //Where I was stucked for a bit where I had to initalize the C[10] to be 0. That is one of the difference for this Radix sort to work compare to just CountingSort. Took me an hour even with breakpoints as it wasn't picking it up as the problem. 
+	for (int i = 0; i < s; i++) //This function is similar to where it will store the count 
+	{
+		C[(A[i] / n) % 10]++; //Instead that this function has the divsion with the module of 10 because the base decimal of being 10.
+	}
+
+	for (int i = 1; i < 10; i++) //This function would be the exact same as the last one in normal counting sort however with Radix the i is being check to 10 as that is the base decimal as well as other numbers lower or higher than 10 would not work. To see a place the proper digit in the right spot.
+	{
+		C[i] = C[i] + C[i - 1]; //Equation is the same as the counting sort just for a different purpose.
+	}
+	for (int i = s - 1; i >= 0; i--) //Again similar to the counting sort where this function is to build the output array.
+	{
+		B[C[(A[i] / n) % 10] - 1] = A[i]; //Difference is that this equation would have the divison and moduel by 10 for the decimal base being 10 and to check each digit with the other digits.
+		C[(A[i] / n) % 10]--; //Decrementing by on.
+	}
+	for (int i = 0; i < s; i++) //This is exactly the same as counting sort to copy from the copy array and place it in th original where it will be output as sorted.
+	{
+		A[i] = B[i]; //This is where the equation is being place in the original array.
+	}
+}
+void printRA(int A[], int s) //The print function to print.
+{
+	for (int i = 0; i < s; i++) //To go through the array.
+	{
+		cout << A[i] << " "; //Outputting the values in the array.
+	}
+}
 void BBRadixSort(int A[], int s)
 {
 	int maxElement = A[0]; //Instead in the counting sort is now in the Radix sort to get the max element.
@@ -102,7 +132,7 @@ void SKMerge(int arr[], int left, int mid, int right)		// Merge function
 	int j = mid + 1;
 	int k = left;		// k is the index at the beginnning of the result array (c)
 
-	int c[100];     //100 derived from Max1 from main
+	int c[60000];     //100 derived from Max1 from main
 
 	while (i <= mid && j <= right)		// While both indexes have not reached the end of either it's array, it continues to traverse the array
 	{
@@ -161,36 +191,7 @@ void SKbubbleSort(int arr[], int n)
 }
 
 
-void CountingSortRA(int A[], int s, int n) //Similar to the last function with counting sort but with divison and used for Radix sort instead. Which Radix sort used part of the counting sort in the function. Which is why I put RA in the end for Radix.
-{
-	int B[45000]; //Placing the B and initalize it here which would be 10 as that is how many value is being sorted.   45000 derived from RadMax3 from main
-	int C[45000] = { 0 }; //Where I was stucked for a bit where I had to initalize the C[10] to be 0. That is one of the difference for this Radix sort to work compare to just CountingSort. Took me an hour even with breakpoints as it wasn't picking it up as the problem. 
-	for (int i = 0; i < s; i++) //This function is similar to where it will store the count 
-	{
-		C[(A[i] / n) % 10]++; //Instead that this function has the divsion with the module of 10 because the base decimal of being 10.
-	}
 
-	for (int i = 1; i < 10; i++) //This function would be the exact same as the last one in normal counting sort however with Radix the i is being check to 10 as that is the base decimal as well as other numbers lower or higher than 10 would not work. To see a place the proper digit in the right spot.
-	{
-		C[i] = C[i] + C[i - 1]; //Equation is the same as the counting sort just for a different purpose.
-	}
-	for (int i = s - 1; i >= 0; i--) //Again similar to the counting sort where this function is to build the output array.
-	{
-		B[C[(A[i] / n) % 10] - 1] = A[i]; //Difference is that this equation would have the divison and moduel by 10 for the decimal base being 10 and to check each digit with the other digits.
-		C[(A[i] / n) % 10]--; //Decrementing by on.
-	}
-	for (int i = 0; i < s; i++) //This is exactly the same as counting sort to copy from the copy array and place it in th original where it will be output as sorted.
-	{
-		A[i] = B[i]; //This is where the equation is being place in the original array.
-	}
-}
-void printRA(int A[], int s) //The print function to print.
-{
-	for (int i = 0; i < s; i++) //To go through the array.
-	{
-		cout << A[i] << " "; //Outputting the values in the array.
-	}
-}
 
 
 class Danielheap
@@ -301,13 +302,12 @@ public:
 		a.pop_back();
 		return temp;
 
-		/*
-			The reason that this function is neccessary is because if extract_maximum is used in an already sorted vector/array
-			it will return the smallest int, because the smallest int occupies a[0]. This is becuase, a[0] will have the largest int
-			in a max heap, but not in a sorted vector. Its the opposite. So, modifying extract_maximum to work on this case would mess up
-			the function for max heaps. This means that it is best to just make two different functions to make it less complicated.
-
-		*/
+		
+		//	The reason that this function is neccessary is because if extract_maximum is used in an already sorted vector/array
+		//	it will return the smallest int, because the smallest int occupies a[0]. This is becuase, a[0] will have the largest int
+		//	in a max heap, but not in a sorted vector. Its the opposite. So, modifying extract_maximum to work on this case would mess up
+		//	the function for max heaps. This means that it is best to just make two different functions to make it less complicated.
+		
 
 	}
 
@@ -460,5 +460,84 @@ int MGQuickSort(int a[], int l, int h)
 	}
 	return 0;
 }
+
+void bruteSum(int bruteArray[], int bruteS, int x) //bruteSum function is where it will find all possible numbers in the list that will equal to the user input for the sum.
+{
+	int total = 0; //Total for the amount of pairs there is
+	for (int i = 0; i < bruteS; i++) //The first for loop function where it starts at the beginning of the list that it will go through.
+	{
+
+		for (int a = i; a < bruteS; a++) //Second for loop function that will go through the list.
+		{
+			int sum = bruteArray[i] + bruteArray[a]; //Adding up from the first for loop and the second for loop to see if it equals to the sum.
+			if (sum == x) //If the sum and x which is the sum the user input equals then enter in the function.
+			{
+				total++; //The total will increment for every sum it finds.
+
+				//Below function is optional where if the user wants to see all the values that are added to see the sum. If want to see it remove the /**/ which is at the beginning and end. 
+
+				/*cout << "pairs that equal to " << x << ": " << bruteArray[i] << " " << bruteArray[a] << endl;*/ 
+			}
+		}
+	}
+	cout << "total amount of pairs " << total << endl;
+	if (total == 0) //If there is no pair through the whole list then enter the function
+	{
+		cout << "No possible pair to equal= " << x << endl; //Outputting that there is no pairs that equals to the sum.
+	}
+}
+void sum_check(vector<int> list, int x) {
+    //boolean to switch if a pair is found
+    bool found_pair = false;
+    //integers to hold the sum pair
+    int num1 = 0;
+    int num2 = 0;
+    //unordered_set called HashTable because it's basically a hash table
+    unordered_set<int> HashTable;
+    //for loop - iterates from 0 to size of list vector
+    for (int i = 0; i < list.size(); i++) {
+        //x holds the sum that we want to find a pair for
+        //list.at(i) is an element in the list vector
+        //Ex:
+        //x = 5, so we want a pair that sums to 5
+        //List vector = (0, 1, 4)
+        //First iteration: y = 5 - 0, so y = 0
+        //then we check the hashtable, is there a 5 to make 0+5 = 5? No.
+        //We store the zero and move on
+        //Second iteration: y = 5 - 1, so y = 4
+        //then we check the hashtable again, is there a 1 to make 4+1 = 5 in the hashtable? No.
+        //We stroe the 4 in the hash table and move on
+        //Third iteration: y = 5 - 4, so y = 1
+        //Check the hashtable again, is there a 4 to make 1 + 4 = 5 in the hashtable? YES
+        //Set found pair to true because we found a pair from the array
+        //Then print out the we found it and the pair!
+        //-----------------
+        //Get the potential pair number
+        int y = x - list.at(i);
+        //Check the hashtable for the other number we need to make the sum
+        if (HashTable.find(y) != HashTable.end()) {
+            //if the list.at(i) + y = x then we found a pair!
+            if (list.at(i) + y == x) {
+                //set the boolean to true
+                found_pair = true;
+                //copy the pair for printing
+                num1 = list.at(i);
+                num2 = y;
+                }
+        }
+        //Insert the last number we tried in the hashtable to keep checking potential pairs
+        HashTable.insert(list.at(i));
+    }
+    //If we found a pair print we did and the pair
+    if (found_pair == true) {
+        cout << "There exist two elements in the array whose sum is exactly x\n";
+        cout << num1 << " + " << num2 << " = " << x << endl;
+    }
+    //else we did NOT find a pair
+    else {
+        "There does NOT exist two elements in the array whose sum is exactly x\n";
+    }
+}
+
 
 
