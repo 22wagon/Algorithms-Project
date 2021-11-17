@@ -539,5 +539,116 @@ void sum_check(vector<int> list, int x) {
     }
 }
 
+#define Max1 100
+#define Max2 10000
+#define Max3 70000
+
+//max1 vectors
+vector<int> max1_vec_sorted()   //returns sorted vector of size Max1
+{
+	vector<int> returnVec(Max1);
+	for (int i = 0; i < Max1;i++)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max1_vec_reversed()   //returns reverse order vector of size Max1
+{
+	vector<int> returnVec(Max1);
+	for (int i = Max1; i >= 0; i--)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max1_vec_halfSorted()    //returns half sorted vector of size Max1
+{
+	vector<int> returnVec(Max1);
+	int n;
+	for (int i = 0; i < (Max1 / 2); i++)   //goes to half of the vector
+	{
+		returnVec.push_back(i);
+	}
+	for (int i = (Max1 / 2) + 1; i < Max1; i++)  //second half of vector
+	{
+		n = rand() % 100;
+		returnVec.push_back(n);
+	}
+
+	return returnVec;
+}
+
+//max2 vectors
+vector<int> max2_vec_sorted()   //returns sorted vector of size Max2
+{
+	vector<int> returnVec(Max2);
+	for (int i = 0; i < Max2;i++)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max2_vec_reversed()   //returns reverse order vector of size Max2
+{
+	vector<int> returnVec(Max2);
+	for (int i = Max2; i >= 0; i--)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max2_vec_halfSorted()    //returns half sorted vector of size Max2
+{
+	vector<int> returnVec(Max2);
+	int n;
+	for (int i = 0; i < (Max2 / 2); i++)   //goes to half of the vector
+	{
+		returnVec.push_back(i);
+	}
+	for (int i = (Max2 / 2) + 1; i < Max2; i++)  //second half of vector
+	{
+		n = rand() % 100;
+		returnVec.push_back(n);
+	}
+
+	return returnVec;
+}
+
+//max3 vectors
+vector<int> max3_vec_sorted()   //returns sorted vector of size Max3
+{
+	vector<int> returnVec(Max3);
+	for (int i = 0; i < Max3;i++)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max3_vec_reversed()   //returns reverse order vector of size Max3
+{
+	vector<int> returnVec(Max3);
+	for (int i = Max3; i >= 0; i--)
+	{
+		returnVec.push_back(i);
+	}
+	return returnVec;
+}
+vector<int> max3_vec_halfSorted()    //returns half sorted vector of size Max3
+{
+	vector<int> returnVec(Max3);
+	int n;
+	for (int i = 0; i < (Max3 / 2); i++)   //goes to half of the vector
+	{
+		returnVec.push_back(i);
+	}
+	for (int i = (Max3 / 2) + 1; i < Max3; i++)  //second half of vector
+	{
+		n = rand() % 100;
+		returnVec.push_back(n);
+	}
+
+	return returnVec;
+}
 
 
