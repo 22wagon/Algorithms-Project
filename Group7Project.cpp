@@ -847,6 +847,89 @@ int main()
         sum_check(list, x);
         //print the time
         printf("\nTime: %.2fs\n", (float)(clock() - StartTime) / CLOCKS_PER_SEC);
+	
+	/*
+	
+	//Create all heaps needed
+	Danielheap max1_sortedVec_heap;
+	Danielheap max1_reverVec_heap;
+	Danielheap max1_halfSortedVec_heap;
+
+	Danielheap max2_sortedVec_heap;
+	Danielheap max2_reverVec_heap;
+	Danielheap max2_halfSortedVec_heap;
+
+	Danielheap max3_sortedVec_heap;
+	Danielheap max3_reverVec_heap;
+	Danielheap max3_halfSortedVec_heap;
+
+	//----------For max1-------------------
+	vector<int> max1_sorted_vec = max1_vec_sorted();
+	max1_sortedVec_heap.buildMaxHeap(max1_sorted_vec);
+	//start timer
+	max1_sortedVec_heap.ascendingHeapSort(max1_sorted_vec);
+	//end timer
+
+	vector<int> max1_rever_vec = max1_vec_reversed();
+	max1_reverVec_heap.buildMaxHeap(max1_rever_vec);
+	//start timer
+	max1_reverVec_heap.ascendingHeapSort(max1_rever_vec);
+	//end timer
+
+	vector<int> max1_halfSorted_vec = max1_vec_halfSorted();
+	max1_halfSortedVec_heap.buildMaxHeap(max1_halfSorted_vec);
+	//start timer
+	max1_halfSortedVec_heap.ascendingHeapSort(max1_halfSorted_vec);
+	//end timer
+
+	cout << "done max 1" << endl;
+
+	//----------For max2-------------------
+	vector<int> max2_sorted_vec = max2_vec_sorted();
+	max2_sortedVec_heap.buildMaxHeap(max2_sorted_vec);
+	//start timer
+	max2_sortedVec_heap.ascendingHeapSort(max2_sorted_vec);
+	//end timer
+
+	vector<int> max2_rever_vec = max2_vec_reversed();
+	max2_reverVec_heap.buildMaxHeap(max2_rever_vec);
+	//start timer
+	max2_reverVec_heap.ascendingHeapSort(max2_rever_vec);
+	//end timer
+
+	vector<int> max2_halfSorted_vec = max2_vec_halfSorted();
+	max2_halfSortedVec_heap.buildMaxHeap(max2_halfSorted_vec);
+	//start timer
+	max2_halfSortedVec_heap.ascendingHeapSort(max2_halfSorted_vec);
+	//end timer
+
+	cout << "done max 2" << endl;
+
+	//----------For max3-------------------
+	vector<int> max3_sorted_vec = max3_vec_sorted();
+	max3_sortedVec_heap.buildMaxHeap(max3_sorted_vec);
+	//start timer
+	max3_sortedVec_heap.ascendingHeapSort(max3_sorted_vec);
+	//end timer
+
+	vector<int> max3_rever_vec = max3_vec_reversed();
+	max3_reverVec_heap.buildMaxHeap(max3_rever_vec);
+	//start timer
+	max3_reverVec_heap.ascendingHeapSort(max3_rever_vec);
+	//end timer
+
+	vector<int> max3_halfSorted_vec = max3_vec_halfSorted();
+	max3_halfSortedVec_heap.buildMaxHeap(max3_halfSorted_vec);
+	//start timer
+	max3_halfSortedVec_heap.ascendingHeapSort(max3_halfSorted_vec);
+	//end timer
+
+	cout << "done max 3" << endl;
+	
+	
+	
+	*/
+	
 
 	return 0;
 }
