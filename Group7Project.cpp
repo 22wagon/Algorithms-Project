@@ -20,6 +20,9 @@ using namespace std;
 #define MergeMax1 100
 #define MergeMax2 10000
 #define MergeMax3 60000
+#define HeapMax1 10000
+#define HeapMax2 100000
+#define HeapMax3 1000000
 #define BruteMax 80000
 
 
@@ -848,7 +851,6 @@ int main()
         //print the time
         printf("\nTime: %.2fs\n", (float)(clock() - StartTime) / CLOCKS_PER_SEC);
 	
-	/*
 	
 	//Create all heaps needed
 	Danielheap max1_sortedVec_heap;
@@ -864,71 +866,80 @@ int main()
 	Danielheap max3_halfSortedVec_heap;
 
 	//----------For max1-------------------
+	int sortedtime, revertime, halfSortedtime = 0;       //declare timer ints needed
+
 	vector<int> max1_sorted_vec = max1_vec_sorted();
 	max1_sortedVec_heap.buildMaxHeap(max1_sorted_vec);
-	//start timer
+	sortedtime = clock();                //start timer
 	max1_sortedVec_heap.ascendingHeapSort(max1_sorted_vec);
-	//end timer
+	sortedtime = clock() - sortedtime;   //end timer
+	cout << "Execution time of sorted list of "<<HeapMax1<<" elements: " << (float)sortedtime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max1_rever_vec = max1_vec_reversed();
 	max1_reverVec_heap.buildMaxHeap(max1_rever_vec);
-	//start timer
+	revertime = clock();				//start timer
 	max1_reverVec_heap.ascendingHeapSort(max1_rever_vec);
-	//end timer
+	revertime = clock() - revertime;	//end timer
+	cout << "Execution time of reversed list of "<<HeapMax1<<" elements: " << (float)revertime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max1_halfSorted_vec = max1_vec_halfSorted();
 	max1_halfSortedVec_heap.buildMaxHeap(max1_halfSorted_vec);
-	//start timer
+	halfSortedtime = clock();					//start timer
 	max1_halfSortedVec_heap.ascendingHeapSort(max1_halfSorted_vec);
-	//end timer
+	halfSortedtime = clock() - halfSortedtime;	//end timer
+	cout << "Execution time of half sorted list of "<<HeapMax1<<" elements: " << (float)halfSortedtime / CLOCKS_PER_SEC << endl << endl << endl;
 
-	cout << "done max 1" << endl;
 
 	//----------For max2-------------------
+	sortedtime, revertime, halfSortedtime = 0;      //reset timer ints
+
 	vector<int> max2_sorted_vec = max2_vec_sorted();
 	max2_sortedVec_heap.buildMaxHeap(max2_sorted_vec);
-	//start timer
+	sortedtime = clock();				//start timer
 	max2_sortedVec_heap.ascendingHeapSort(max2_sorted_vec);
-	//end timer
+	sortedtime = clock() - sortedtime;	//end timer
+	cout << "Execution time of sorted list of "<<HeapMax2<<" elements: " << (float)sortedtime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max2_rever_vec = max2_vec_reversed();
 	max2_reverVec_heap.buildMaxHeap(max2_rever_vec);
-	//start timer
+	revertime = clock();				//start timer
 	max2_reverVec_heap.ascendingHeapSort(max2_rever_vec);
-	//end timer
+	revertime = clock() - revertime;	//end timer
+	cout << "Execution time of reversed list of "<<HeapMax2<<" elements: " << (float)revertime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max2_halfSorted_vec = max2_vec_halfSorted();
 	max2_halfSortedVec_heap.buildMaxHeap(max2_halfSorted_vec);
-	//start timer
+	halfSortedtime = clock();						//start timer
 	max2_halfSortedVec_heap.ascendingHeapSort(max2_halfSorted_vec);
-	//end timer
+	halfSortedtime = clock() - halfSortedtime;		//end timer
+	cout << "Execution time of half sorted list of "<<HeapMax2<<" elements: " << (float)halfSortedtime / CLOCKS_PER_SEC << endl<<endl<<endl;
 
-	cout << "done max 2" << endl;
 
 	//----------For max3-------------------
+	sortedtime, revertime, halfSortedtime = 0;      //reset timer ints
+
 	vector<int> max3_sorted_vec = max3_vec_sorted();
 	max3_sortedVec_heap.buildMaxHeap(max3_sorted_vec);
-	//start timer
+	sortedtime = clock();					//start timer
 	max3_sortedVec_heap.ascendingHeapSort(max3_sorted_vec);
-	//end timer
+	sortedtime = clock() - sortedtime;		//end timer
+	cout << "Execution time of sorted list of "<<HeapMax3<<" elements: " << (float)sortedtime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max3_rever_vec = max3_vec_reversed();
 	max3_reverVec_heap.buildMaxHeap(max3_rever_vec);
-	//start timer
+	revertime = clock();				//start timer
 	max3_reverVec_heap.ascendingHeapSort(max3_rever_vec);
-	//end timer
+	revertime = clock() - revertime;	//end timer
+	cout << "Execution time of reversed list of "<<HeapMax3<<" elements: " << (float)revertime / CLOCKS_PER_SEC << endl;
 
 	vector<int> max3_halfSorted_vec = max3_vec_halfSorted();
 	max3_halfSortedVec_heap.buildMaxHeap(max3_halfSorted_vec);
-	//start timer
+	halfSortedtime = clock();					//start timer
 	max3_halfSortedVec_heap.ascendingHeapSort(max3_halfSorted_vec);
-	//end timer
+	halfSortedtime = clock() - halfSortedtime;	//end timer
+	cout << "Execution time of half sorted list of "<<HeapMax3<<" elements: " << (float)halfSortedtime / CLOCKS_PER_SEC << endl<<endl<<endl;
 
-	cout << "done max 3" << endl;
-	
-	
-	
-	*/
+
 	
 
 	return 0;
