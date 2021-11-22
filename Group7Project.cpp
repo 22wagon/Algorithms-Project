@@ -7,7 +7,6 @@
 using namespace std;
 
 
-
 #define Max1 100
 #define Max2 10000
 #define Max3 70000
@@ -24,6 +23,9 @@ using namespace std;
 #define HeapMax2 100000
 #define HeapMax3 1000000
 #define BruteMax 80000
+#define QuickMax1 100
+#define QuickMax2 10000
+#define QuickMax3 25000
 
 
 
@@ -34,7 +36,8 @@ using namespace std;
 int main()
 {
 	
-	//-InsertionSort-
+	
+	//-InsertionSort-//
 	clock_t insertionTime;
 	int arrSorted1[Max1], arrHalf1[Max1], arrReversed1[Max1], arrSorted2[Max2], arrHalf2[Max2], arrReversed2[Max2], arrSorted3[Max3], arrHalf3[Max3], arrReversed3[Max3]; //All different size of list.
 	cout << "-Insertion sort-" << endl << endl;
@@ -153,6 +156,11 @@ int main()
 	BBinsertion(arrReversed3, reversesize3);
 	insertionTime = clock() - insertionTime;
 	cout << "Execution time of reverse sorted list of 70000 elements: " << (float)insertionTime / CLOCKS_PER_SEC << endl << endl;
+
+
+
+
+
 
 	//-SelectionSort-
 	clock_t selectionTime;
@@ -274,6 +282,10 @@ int main()
 	BBselectionsorting(SelReversed3, Selreversesize3);
 	selectionTime = clock() - selectionTime;
 	cout << "Execution time of reverse sorted list of 70000: " << (float)selectionTime / CLOCKS_PER_SEC << endl;
+
+
+
+
 
 	//-CountingSort-
 	clock_t CountTime;
@@ -402,6 +414,8 @@ int main()
 
 
 
+
+
 	//-Radix-//
 	clock_t radixTime;
 	int RadixSorted1[RadMax1], RadixHalf1[RadMax1], RadixReversed1[RadMax1], RadixSorted2[RadMax2], RadixHalf2[RadMax2], RadixReversed2[RadMax2], RadixSorted3[RadMax3], RadixHalf3[RadMax3], RadixReversed3[RadMax3];
@@ -521,7 +535,12 @@ int main()
 	BBRadixSort(RadixReversed3, reversesize3);
 	radixTime = clock() - radixTime;
 	cout << "Execution time of reverse sorted list of 45000 elements: " << (float)radixTime / CLOCKS_PER_SEC << endl;
-	
+
+
+
+
+
+
 	/////////////////////////////////////// Merge Sort
 
 	clock_t MergeTime;
@@ -658,6 +677,11 @@ int main()
 	SKMergeSort(MergeReversed3, 0, (reversesize3 - 1));
 	MergeTime = clock() - MergeTime;
 	cout << "Execution time of reverse sorted list of 60000 elements: " << (float)MergeTime / CLOCKS_PER_SEC << endl << endl << endl; //Getting the execution time.
+
+
+
+
+
 
 	/////////////////////////////////////// Bubble Sort
 
@@ -796,6 +820,11 @@ int main()
 	BubbleTime = clock() - BubbleTime;
 	cout << "Execution time of reverse sorted list of 70000 elements: " << (float)BubbleTime / CLOCKS_PER_SEC << endl << endl << endl; //Getting the execution time.
 
+
+
+
+
+
 	////////////////////////////////////
 	clock_t bruteTime;
 	int xvalue; //The sum
@@ -815,6 +844,11 @@ int main()
 	bruteTime = clock() - bruteTime; //End time
 	cout << "Execution time of bruteSum time: " << (float)bruteTime / CLOCKS_PER_SEC << endl << endl << endl; //Output the time to execute.
 
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Vector to hold the array
     vector<int> list;
     //int to hold the user selected size of the array
@@ -830,14 +864,12 @@ int main()
         //Pushes the generated elements in the vector named list
         list.push_back(rand() % size);
     }
-    //Outputs generated array - uncommment to see it 
-   /* 
-   cout << "Generated Array:\n";
+    //Outputs generated array - uncommment to see it  
+   //cout << "Generated Array:\n";
     //for loop that prints the generated array
-    for (int i = 0; i < size; i++) {
-        cout << list.at(i) << " ";
-    }
-    */
+    //for (int i = 0; i < size; i++) {
+        //cout << list.at(i) << " ";
+   // }
     //Endline
     cout << endl;
     //User input for integer x
@@ -852,6 +884,9 @@ int main()
         printf("\nTime: %.2fs\n", (float)(clock() - StartTime) / CLOCKS_PER_SEC);
 	
 	
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Create all heaps needed
 	Danielheap max1_sortedVec_heap;
 	Danielheap max1_reverVec_heap;
@@ -940,7 +975,143 @@ int main()
 	cout << "Execution time of half sorted list of "<<HeapMax3<<" elements: " << (float)halfSortedtime / CLOCKS_PER_SEC << endl<<endl<<endl;
 
 
+	/////////////////////////////////////// Bubble Sort
+
+	clock_t QuickTime;
+	int arrSorted1[QuickMax1], arrHalf1[QuickMax1], arrReversed1[QuickMax1], arrSorted2[QuickMax2], arrHalf2[QuickMax2], arrReversed2[QuickMax2], arrSorted3[QuickMax3], arrHalf3[QuickMax3], arrReversed3[QuickMax3]; //All different size of list.
+
+	///////////////////////////////////
+	for (int i = 0; i < QuickMax1; i++)	// Sorted Array
+	{
+		arrSorted1[i] = i; //Having the elements be place in the array in order already
+	}
+	int sorted1c = sizeof(arrSorted1) / sizeof(arrSorted1[0]); //Getting the size of the list
+
+	QuickTime = clock();
+	MGQuickSort(arrSorted1, 0, sorted1c);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of already sorted list of 100 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl; //Getting the execution time.
+
+	///////////////////////////////////
+	for (int i = 0; i < QuickMax1; i++)	// Half Sorted Array
+	{
+		if (i % 6 == 0 && i != 0)
+		{
+			arrHalf1[i] = rand() % 100;		// Random number inserted every 6th element.
+		}
+		else
+		{
+			arrHalf1[i] = i;
+		}
+	}
+
+	int halfsize1c = sizeof(arrHalf1) / sizeof(arrHalf1[0]);
+	QuickTime = clock();
+	MGQuickSort(arrHalf1, 0, halfsize1c);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of half sorted list of 100 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl;
+
+	////////////////////////////////////
+	int rx = 0; //For reverse
+	for (int i = QuickMax1; i > 0; i--)	// Reversed Array
+	{
+		arrReversed1[rx++] = i; //Place the values in reverse.
+	}
+
+	int reversesize1y = sizeof(arrReversed1) / sizeof(arrReversed1[0]);
+	QuickTime = clock();
+	MGQuickSort(arrReversed1, 0, reversesize1y);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of reverse sorted list of 100 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl << endl << endl; //Getting the execution time.
 	
+		///////////////////////////////////
+	for (int i = 0; i < QuickMax2; i++)	// Sorted Array
+	{
+		arrSorted2[i] = i; //Having the elements be place in the array in order already
+	}
+	int sorted2d = sizeof(arrSorted2) / sizeof(arrSorted2[0]); //Getting the size of the list
+
+	QuickTime = clock();
+	MGQuickSort(arrSorted2, 0, sorted2d);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of already sorted list of 10000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl; //Getting the execution time.
+
+	///////////////////////////////////
+	for (int i = 0; i < QuickMax2; i++)	// Half Sorted Array
+	{
+		if (i % 6 == 0 && i != 0)
+		{
+			arrHalf2[i] = rand() % 100;		// Random number inserted every 6th element.
+		}
+		else
+		{
+			arrHalf2[i] = i;
+		}
+	}
+
+	int halfsize2d = sizeof(arrHalf2) / sizeof(arrHalf2[0]);
+	QuickTime = clock();
+	MGQuickSort(arrHalf2, 0, halfsize2d);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of half sorted list of 10000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl;
+
+	////////////////////////////////////
+	int ry = 0; //For reverse
+	for (int i = QuickMax2; i > 0; i--)	// Reversed Array
+	{
+		arrReversed2[ry++] = i; //Place the values in reverse.
+	}
+
+	int reversesize2t = sizeof(arrReversed2) / sizeof(arrReversed2[0]);
+	QuickTime = clock();
+	MGQuickSort(arrReversed2, 0, reversesize2t);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of reverse sorted list of 10000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl << endl << endl; //Getting the execution time.
+
+		///////////////////////////////////
+	for (int i = 0; i < QuickMax3; i++)	// Sorted Array
+	{
+		arrSorted3[i] = i; //Having the elements be place in the array in order already
+	}
+	int sorted3e = sizeof(arrSorted3) / sizeof(arrSorted3[0]); //Getting the size of the list
+
+	QuickTime = clock();
+	MGQuickSort(arrSorted3, 0, sorted3e);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of already sorted list of 25000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl; //Getting the execution time.
+
+	///////////////////////////////////
+	for (int i = 0; i < QuickMax3; i++)	// Half Sorted Array
+	{
+		if (i % 6 == 0 && i != 0)
+		{
+			arrHalf3[i] = rand() % 100;		// Random number inserted every 6th element.
+		}
+		else
+		{
+			arrHalf3[i] = i;
+		}
+	}
+
+	int halfsize3e = sizeof(arrHalf3) / sizeof(arrHalf3[0]);
+	QuickTime = clock();
+	MGQuickSort(arrHalf3, 0, halfsize3e);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of half sorted list of 25000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl;
+
+	////////////////////////////////////
+	int rz = 0; //For reverse
+	for (int i = QuickMax3; i > 0; i--)	// Reversed Array
+	{
+		arrReversed3[rz++] = i; //Place the values in reverse.
+	}
+
+	int reversesize3w = sizeof(arrReversed3) / sizeof(arrReversed3[0]);
+	QuickTime = clock();
+	MGQuickSort(arrReversed3, 0, reversesize3w);
+	QuickTime = clock() - QuickTime;
+	cout << "Execution time of reverse sorted list of 25000 elements: " << (float)QuickTime / CLOCKS_PER_SEC << endl << endl << endl; //Getting the execution time.
+
 
 	return 0;
 }
