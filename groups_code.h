@@ -312,114 +312,6 @@ public:
 	}
 
 };
-void daniel_merge(vector<int>& vec, int left, int mid, int right)
-{
-	int i = left, j = mid + 1;              //i points to first index of left subvector, j to right subvector
-	vector<int> aux(vec.size());            //aux vector to help with merging
-	for (int k = left; k <= right; k++)     //copy passed vector into aux vector
-	{
-		aux[k] = vec[k];
-	}
-	for (int g = left; g <= right; g++)
-	{
-		if (i > mid) { vec[g] = aux[j]; j++; }                     //if left subvector is done
-		else if (j > right) { vec[g] = aux[i]; i++; }              //if right subvector is done             
-		else if (aux[i] <= aux[j]) { vec[g] = aux[i]; i++; }       //if i'th element is less than j's element
-		else if (aux[i] > aux[j]) { vec[g] = aux[j]; j++; }        //if i'th element is greater than j's element
-	}
-
-}
-void daniel_mergeSort(vector<int>& a, int left, int right)
-{
-	if (right <= left) { return; }
-	else
-	{
-		int mid = (left + right) / 2;
-		daniel_mergeSort(a, left, mid);
-		daniel_mergeSort(a, mid + 1, right);
-		daniel_merge(a, left, mid, right);
-	}
-
-}
-void daniel_selectSort(vector<int>& a)
-{
-	int min;
-	for (int i = 0; i < a.size(); i++)
-	{
-		min = i;
-		for (int j = i + 1; j < a.size(); j++)
-		{
-			if (a.at(j) < a.at(min))
-				min = j;
-			continue;
-		}
-		std::swap(a[i], a[min]);
-	}
-}
-void daniel_bubbleSort(vector<int>& a)
-{
-	int n = a.size();
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n - 2; j++)
-		{
-			if (a[j] < a[j + 1])
-				std::swap(a[j], a[j + 1]);
-		}
-	}
-}
-int daniel_find_r(vector<int>& a) //basically a find max function
-{
-	int  max;
-	max = a[0];
-	for (int i = 0; i < a.size(); i++)
-	{
-		if (a[i] >= max)
-			max = a[i];
-	}
-	return max;
-}
-void daniel_countSort(vector<int>& a, vector<int>& b)
-{
-	int r = daniel_find_r(a);    //find max element
-	int n = a.size();
-	vector<int> c(r + 1);    //initalize c with r + 1
-	for (int i = 0; i < r; i++)   //make aux vec filled with 0s
-	{
-		c[i] = 0;
-	}
-	for (int j = 0; j < n; j++) //needed to initalize j to 0, instead of 1, because it wasn't counting the # in position 0
-	{
-		c[a[j]] = (c[a[j]] + 1);
-	}
-	for (int i = 1; i <= r; i++)   //cummalative sum
-	{
-		c[i] = (c[i] + c[i - 1]);
-	}
-	for (int j = (n - 1); j >= 0; j--)
-	{
-		b[(c[a[j]] - 1)] = a[j];  //Needed to decrement c, because it was updating b one position to the right 
-		c[a[j]] = (c[a[j]] - 1);  //and was causing a "vector subscript out of range" error
-
-	}
-}
-int find_d(vector<int>& a)  //this function gets the max of the passed array, and gets the length of that max
-{
-	int max = daniel_find_r(a);
-	int size = trunc(log10(max)) + 1;
-	return size;
-}
-void daniel_radixSort(vector<int>& a)
-{
-	int d = find_d(a);
-	vector<int> b(a.size());
-	for (int i = 1; i <= d; i++)
-	{
-		daniel_countSort(a, b);
-	}
-	a = b;
-}
-
 
 void MGswap(int* a, int* b)
 {
@@ -442,19 +334,12 @@ int MGPartition(int a[], int l, int h)
 	MGswap(&a[pivot], &a[index]);
 	return index;
 }
-int MGRandomPivotPartition(int a[], int l, int h)
-{
-	int pvt, n, temp;
-	n = rand();
-	pvt = l + n % (h - l + 1);
-	MGswap(&a[h], &a[pvt]);
-	return MGPartition(a, l, h);
-}
+
 int MGQuickSort(int a[], int l, int h)
 {
 	int pindex;
 	if (l < h) {
-		pindex = MGRandomPivotPartition(a, l, h);
+		pindex = MGPartition(a, l, h);
 		MGQuickSort(a, l, pindex - 1);
 		MGQuickSort(a, pindex + 1, h);
 	}
@@ -650,6 +535,5 @@ vector<int> max3_vec_halfSorted()    //returns half sorted vector of size Max3
 
 	return returnVec;
 }
-
 
 
