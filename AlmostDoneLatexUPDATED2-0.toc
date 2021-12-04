@@ -1,0 +1,31 @@
+\contentsline {section}{\numberline {1}Part 1: Comparison of Sorting Algorithms}{3}{}%
+\contentsline {subsection}{\numberline {1.1}1. Theoretical question}{3}{}%
+\contentsline {section}{\numberline {2}Data generation and experimental setup}{7}{}%
+\contentsline {subsection}{\numberline {2.1}Machine Use and time Mechanism}{7}{}%
+\contentsline {subsection}{\numberline {2.2}Experiment execution and times report}{8}{}%
+\contentsline {subsection}{\numberline {2.3}Selected inputs}{8}{}%
+\contentsline {subsection}{\numberline {2.4}Using different input for third list}{8}{}%
+\contentsline {subsection}{\numberline {2.5}Execution Time Gather}{8}{}%
+\contentsline {section}{\numberline {3}Which of the five sorts seems to perform the best?}{17}{}%
+\contentsline {subsection}{\numberline {3.1}The sort that perform the best}{20}{}%
+\contentsline {section}{\numberline {4}To what extent do the best, average and worst-case analyses of each sort agree with the experimental results?}{21}{}%
+\contentsline {subsection}{\numberline {4.1}Insertion Sort:}{22}{}%
+\contentsline {subsection}{\numberline {4.2}Selection Sort:}{24}{}%
+\contentsline {subsection}{\numberline {4.3}Bubble Sort:}{25}{}%
+\contentsline {subsection}{\numberline {4.4}Merge Sort:}{27}{}%
+\contentsline {section}{\numberline {5}Is The Number of Comparisons A Good Predictor of the Execution Time?}{29}{}%
+\contentsline {subsection}{\numberline {5.1}Insertion Sort Correlation}{29}{}%
+\contentsline {subsection}{\numberline {5.2}Selection Sort Correlation}{30}{}%
+\contentsline {subsection}{\numberline {5.3}Bubble Sort Correlation}{31}{}%
+\contentsline {subsection}{\numberline {5.4}Merge Sort Correlation}{32}{}%
+\contentsline {subsection}{\numberline {5.5}Heap Sort Correlation}{33}{}%
+\contentsline {subsection}{\numberline {5.6}Quick Sort Correlation}{34}{}%
+\contentsline {subsection}{\numberline {5.7}Conclusion}{34}{}%
+\contentsline {section}{\numberline {6}Part 2: Brute/Inefficient method}{35}{}%
+\contentsline {subsection}{\numberline {6.1}PseudoCode}{35}{}%
+\contentsline {subsection}{\numberline {6.2}Running time analysis}{35}{}%
+\contentsline {subsection}{\numberline {6.3}Report of brute/inefficient method}{36}{}%
+\contentsline {section}{\numberline {7}Part 2: Efficient method}{36}{}%
+\contentsline {subsection}{\numberline {7.1}PseudoCode}{36}{}%
+\contentsline {subsection}{\numberline {7.2}Running time analysis}{37}{}%
+\contentsline {subsection}{\numberline {7.3}Report of Efficient method}{37}{}%
