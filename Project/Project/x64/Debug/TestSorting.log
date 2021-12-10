@@ -1,0 +1,6 @@
+﻿  menu.cpp
+C:\Users\maryo\Desktop\Project\Project\menu.cpp(178,13): warning C4473: 'scanf_s' : not enough arguments passed for format string
+C:\Users\maryo\Desktop\Project\Project\menu.cpp(178,13): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+C:\Users\maryo\Desktop\Project\Project\menu.cpp(178,13): message : the missing variadic argument 2 is required by format string '%c'
+C:\Users\maryo\Desktop\Project\Project\menu.cpp(178,13): message : this argument is used as a buffer size
+  TestSorting.vcxproj -> C:\Users\maryo\Desktop\Project\Project\x64\Debug\TestSorting.exe

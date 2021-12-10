@@ -1,0 +1,3 @@
+E:\Blackghost\@Task\1116_maria\material\Project\x64\Debug\TestSorting.exe
+E:\@Task\1208_Sorting_algorithm(Modify_Free)\Project\x64\Debug\TestSorting.exe
+C:\Users\maryo\Desktop\result\Project\x64\Debug\TestSorting.exe
